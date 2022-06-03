@@ -21,6 +21,6 @@ class Solution {
     public int maxDepthHelper(TreeNode root, int depth) {
         if(root == null) return depth;
         
-        return Math.max(maxDepthHelper(root.left,depth+1),maxDepthHelper(root.right,depth+1));
+        return 1 + Math.max(maxDepthHelper(root.left,depth),maxDepthHelper(root.right,depth));
     }
 }
