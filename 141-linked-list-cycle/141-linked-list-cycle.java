@@ -1,4 +1,5 @@
 /**
+/**
  * Definition for singly-linked list.
  * class ListNode {
  *     int val;
@@ -12,12 +13,13 @@
 public class Solution {
     public boolean hasCycle(ListNode head) {
         if(head == null || head.next == null) return false;
-        Set<ListNode> set = new HashSet<>();
+
+        ArrayList<ListNode> list = new ArrayList<ListNode>();
         
         while(head.next != null) {
             ListNode next = head.next;
-            if(set.contains(next)) return true;
-            set.add(head);
+            if(list.contains(next)) return true;
+            list.add(head);
             head = head.next;
         }
         return false;
