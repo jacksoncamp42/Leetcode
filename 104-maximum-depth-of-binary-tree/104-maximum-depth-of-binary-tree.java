@@ -33,7 +33,7 @@ class Solution {
                 max = Math.max(max,depth);
                 stack.add(node.left);
                 stack2.add(depth + 1);
-                
+            
                 stack.add(node.right);
                 stack2.add(depth + 1);
             }
