@@ -15,29 +15,12 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        if(root == null) return 0;
+        return maxDepthHelper(root,0);
+    }
+    
+    public int maxDepthHelper(TreeNode root, int depth) {
+        if(root == null) return depth;
         
-        Stack<TreeNode> stack = new Stack();
-        Stack<Integer> stack2 = new Stack();
-
-        stack.add(root);
-        stack2.add(1);
-        
-        int max = 1;
-        
-        while(!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            int depth = stack2.pop();
-            
-            if(node != null) {
-                max = Math.max(max,depth);
-                stack.add(node.left);
-                stack2.add(depth + 1);
-            
-                stack.add(node.right);
-                stack2.add(depth + 1);
-            }
-        }
-        return max;
+        return 1 + Math.max(maxDepthHelper(root.left,depth),maxDepthHelper(root.right,depth));
     }
 }
