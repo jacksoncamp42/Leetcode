@@ -26,9 +26,9 @@ class Solution {
         
         int leftHeight = dfs(root.left);
         int rightHeight = dfs(root.right);        
-        int nodeHeight = 1 + Math.max(leftHeight, rightHeight);
+        int currHeight = 1 + Math.max(leftHeight, rightHeight);
         int currDiameter = 2 + leftHeight + rightHeight;
         maxDiameter = Math.max(maxDiameter,currDiameter);
-        return nodeHeight;
+        return currHeight;
     }
 }
