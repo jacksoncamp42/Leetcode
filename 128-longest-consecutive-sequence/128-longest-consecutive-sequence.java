@@ -3,19 +3,25 @@ class Solution {
         if(nums.length == 0) return 0;
         if(nums.length == 1) return 1;
         
-        Set<Integer> numbers = Arrays.stream(nums).boxed().collect(Collectors.toSet());
-        int length = 0;
-        int max = 0;
+        Arrays.sort(nums);
+        // for(int i : nums) {
+        //     System.out.println(i);
+        // }
+        int consecutive = 1;
+        int maxConsecutive = 1;
+        int i = 0;
         
-        for(int n : nums) {
-            if(!numbers.contains(n-1)) {
-                length = 1;
-                while(numbers.contains(n + length)) {
-                    length++;
-                }
-                max = Math.max(length, max);
+        for(int j = 1; j < nums.length; j++) {
+            if((nums[i] + 1) == nums[j]) {
+                consecutive++;
             }
+            else if (nums[i] != nums[j]){
+                consecutive = 1;
+            }
+            maxConsecutive = Math.max(maxConsecutive, consecutive);
+            i++;
         }
-        return max;
+        
+        return maxConsecutive;
     }
 }
