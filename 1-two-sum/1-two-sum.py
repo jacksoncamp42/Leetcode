@@ -4,8 +4,7 @@ class Solution(object):
         for i in range(len(nums)): # O(n) - iterating through list
             difference = target - nums[i]
             if nums[i] in dif: # O(1) - dictionary access
-                index1 = dif[nums[i]]
-                return [i, index1]
+                return [i, dif[nums[i]]]
             else:
                 dif[difference] = i
         
