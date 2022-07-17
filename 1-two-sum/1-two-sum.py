@@ -1,10 +1,10 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        dif = {}
+        hashmap = {}
         for i in range(len(nums)): # O(n) - iterating through list
             difference = target - nums[i]
-            if nums[i] in dif: # O(1) - dictionary access
-                return [i, dif[nums[i]]]
+            if nums[i] in hashmap: # O(1) - dictionary access
+                return [i, hashmap[nums[i]]]
             else:
-                dif[difference] = i
+                hashmap[difference] = i
         
