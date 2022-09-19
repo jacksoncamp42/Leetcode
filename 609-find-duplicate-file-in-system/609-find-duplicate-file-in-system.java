@@ -21,7 +21,6 @@ class Solution {
                     fileIndex++;
                 }
                 String fileName = paths[i].substring(fileStart, fileIndex);
-                System.out.println(fileName);
                 fileIndex++;
                 int contentStart = fileIndex;
                 while(paths[i].charAt(fileIndex) != ')' && fileIndex < paths[i].length()) {
